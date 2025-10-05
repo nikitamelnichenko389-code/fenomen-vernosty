@@ -46,14 +46,14 @@
         </div>
     </header>
 
-    <!-- Прогресс чтения -->
+    <!-- Вертикальный прогресс чтения -->
     <div id="readingProgress" class="reading-progress">
         <div class="progress-bar">
             <div class="progress-fill" id="progressFill"></div>
         </div>
         <div class="progress-info">
-            <span id="progressText">Прогресс чтения: 0%</span>
-            <button onclick="app.toggleReadingMode()" class="reading-mode-btn">📖 Режим чтения</button>
+            <span id="progressText">0%</span>
+            <button onclick="app.toggleReadingMode()" class="reading-mode-btn" title="Режим чтения">📖</button>
         </div>
     </div>
 
@@ -92,7 +92,7 @@
             <div class="heroes-grid">
                 <!-- Александр Захарченко -->
                 <div class="hero-card" onclick="app.showHeroDetail('zaharchenko')">
-                    <div class="hero-image">👑</div>
+                    <div class="hero-image">🏴</div>
                     <h3>Александр Захарченко</h3>
                     <p>Первый глава ДНР. Принял на себя ответственность за тысячи людей. Погиб 31.08.2018.</p>
                     <div class="hero-details">
@@ -103,7 +103,7 @@
                 
                 <!-- Моторола -->
                 <div class="hero-card" onclick="app.showHeroDetail('motorola')">
-                    <div class="hero-image">⚔️</div>
+                    <div class="hero-image">🏴</div>
                     <h3>Арсен Павлов "Моторола"</h3>
                     <p>Командир, который шёл первым. Его принцип: «Решил — делай». Погиб 16.10.2016.</p>
                     <div class="hero-details">
@@ -114,7 +114,7 @@
                 
                 <!-- Гиви -->
                 <div class="hero-card" onclick="app.showHeroDetail('givi')">
-                    <div class="hero-image">🛡️</div>
+                    <div class="hero-image">🏴</div>
                     <h3>Михаил Толстых "Гиви"</h3>
                     <p>Водитель, ставший символом народного сопротивления. Командир подразделения «Сомали». Погиб 08.02.2017.</p>
                     <div class="hero-details">
@@ -130,7 +130,7 @@
             <h2>Хронология событий</h2>
             <div class="timeline">
                 <!-- 2014 -->
-                <div class="timeline-item">
+                <div class="timeline-item" onclick="app.showTimelineDetail(2014)">
                     <div class="timeline-date">2014</div>
                     <div class="timeline-content">
                         <h3>Начало конфликта</h3>
@@ -139,7 +139,7 @@
                 </div>
                 
                 <!-- 2015 -->
-                <div class="timeline-item">
+                <div class="timeline-item" onclick="app.showTimelineDetail(2015)">
                     <div class="timeline-date">2015</div>
                     <div class="timeline-content">
                         <h3>Бои за Донецк</h3>
@@ -148,7 +148,7 @@
                 </div>
                 
                 <!-- 2016-2017 -->
-                <div class="timeline-item">
+                <div class="timeline-item" onclick="app.showTimelineDetail(2016)">
                     <div class="timeline-date">2016-2017</div>
                     <div class="timeline-content">
                         <h3>Гибель героев</h3>
@@ -157,7 +157,7 @@
                 </div>
                 
                 <!-- 2018 -->
-                <div class="timeline-item">
+                <div class="timeline-item" onclick="app.showTimelineDetail(2018)">
                     <div class="timeline-date">2018</div>
                     <div class="timeline-content">
                         <h3>Гибель Захарченко</h3>
@@ -271,7 +271,7 @@
                     <span class="star" data-rating="4" onclick="app.setRating(4)">⭐</span>
                     <span class="star" data-rating="5" onclick="app.setRating(5)">⭐</span>
                 </div>
-                <div class="rating-text">Средняя оценка: <span id="averageRating">4.8</span>/5</div>
+                <div class="rating-text">Средняя оценка: <span id="averageRating">0.0</span>/5 (<span id="ratingCount">0</span> оценок)</div>
             </div>
         </section>
 
@@ -392,6 +392,16 @@
             
             <div id="modalBody">
                 <!-- Содержание главы будет загружаться здесь -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно таймлайна -->
+    <div id="timelineModal" class="modal">
+        <div class="modal-content timeline-modal">
+            <span class="close" onclick="app.closeModal('timelineModal')">&times;</span>
+            <div id="timelineBody">
+                <!-- Информация о событиях таймлайна -->
             </div>
         </div>
     </div>
